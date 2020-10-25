@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang = "en">
+   <head></head>
+   <body>
+      <h3>
+         <a href = "{{ url_for('show_all') }}">Campus News App Database</a>
+      </h3>
+      
+      <hr/>
+      {%- for message in get_flashed_messages() %}
+         {{ message }}
+      {%- endfor %}
+		
+      <h3>User(<a href = "{{ url_for('new') }}"> Add New User
+         </a>)</h3>
+      
+      <table>
+         <thead>
+            <tr>
+               <th>Name</th>
+               <th>Registration No.:</th>
+               <th>Email</th>
+               <th>Password</th>
+               <th>course</th>
+            </tr>
+         </thead>
+
+         <tbody>
+            {% for user in User %}
+               <tr>
+                  <td>{{ user.name }}</td>
+                  <td>{{ user.regNo }}</td>
+                  <td>{{ user.email }}</td>
+                  <td>{{ user.password }}</td>
+                  <td>{{ user.course }}</td>
+               </tr>
+            {% endfor %}
+         </tbody>
+      </table>
+   </body>
+</html>
